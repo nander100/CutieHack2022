@@ -26,7 +26,6 @@ string CreateOptions() { // Returns options.
 string FilenameInput() { // Returns filename.
     string fileName;
     cout << "Filename: ";
-    getline(cin, fileName);
     return fileName;
 }
 
@@ -41,6 +40,12 @@ int main() {
     // Open a file. 
     ofstream storyFile;
     storyFile.open(filename);
+
+    //Check if file is open
+    if (!storyFile.is_open()) {
+        cout << "Error opening " << filename << endl;
+        return 1;
+    }
 
     //Print out into the file. 
     storyFile << dialogue << endl
