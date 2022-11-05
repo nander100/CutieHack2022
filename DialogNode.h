@@ -9,11 +9,17 @@ class DialogNode {
 
   public:
 
-  private:
-    string dialog;
-    vector<string> choices;
-    
+    DialogNode();
+    ~DialogNode();
 
+  private:
+
+    string displayText;
+    unique_ptr<DialogNode> parent;
+    vector<unique_ptr<DialogNode>> children;
+    vector<string> choices;
+    void promptData() const;
+    
 
 };
 
