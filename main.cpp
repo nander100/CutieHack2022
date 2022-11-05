@@ -6,5 +6,9 @@ using namespace std;
 
 int main() {
     
+    DialogNode x;
+
+    x.debugData();
+
     return 0;
 }
