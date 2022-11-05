@@ -11,14 +11,18 @@ class DialogNode {
 
     DialogNode();
     ~DialogNode();
-
+    void debugData() const;
+    
   private:
 
     string displayText;
+    int numChildren;
     unique_ptr<DialogNode> parent;
     vector< unique_ptr<DialogNode> > children;
     vector<string> choices;
-    void promptData() const;
+    const int promptPaths() const;
+    const string promptDialog() const;
+    
     
 
 };
