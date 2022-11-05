@@ -11,7 +11,6 @@ string InputDialogue() { //Returns dialogue.
     string dialogue;
     cout << "On-Screen Dialogue: ";
     getline(cin, dialogue);
-    cout << endl;
     return dialogue;
 }
 
@@ -19,14 +18,14 @@ string CreateOptions() { // Returns options.
     string option;
     cout << "User Option: ";
     getline(cin, option);
-    cout << endl;
     return option; 
 }
 
 string FilenameInput() { // Returns filename.
-    string fileName;
+    string filename;
     cout << "Filename: ";
-    return fileName;
+    cin >> filename;
+    return filename;
 }
 
 int main() { 
