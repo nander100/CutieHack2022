@@ -1,5 +1,5 @@
 #ifndef _DIALOGNODE_H_
-#define _DIALOGENODE_H_
+#define _DIALOGNODE_H_
 #include <iostream>
 #include <vector>
 
@@ -16,7 +16,7 @@ class DialogNode {
 
     string displayText;
     unique_ptr<DialogNode> parent;
-    vector<unique_ptr<DialogNode>> children;
+    vector< unique_ptr<DialogNode> > children;
     vector<string> choices;
     void promptData() const;
     
