@@ -27,7 +27,6 @@ string FilenameInput() { // Returns filename.
     string fileName;
     cout << "Filename: ";
     getline(cin, fileName);
-    fileName.push_back(".txt");
     return fileName;
 }
 
