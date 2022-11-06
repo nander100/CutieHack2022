@@ -10,7 +10,7 @@ using namespace std;
 const string promptDialog();
 const int promptPathways();
 const string promptDecision();
-const int promptDepth();
+int promptDepth();
 void printVector(const vector<string>& v);
 void recurse (int depth, int counter, int numResults, int change, int index, vector<string>& v);
 
@@ -27,7 +27,7 @@ int main() {
     cout << numResults << endl;
     vector<string> vec(numResults);
     string first = promptDialog();
-    vec.insert(vec.begin() + currIndex, first);
+    vec.at(currIndex) = first;
     //printVector(vec);
     recurse(depth, recurseCounter, numResults, change, currIndex, vec);
 
@@ -38,7 +38,7 @@ int main() {
     }
 
     for (unsigned i = 0; i < vec.size(); ++i) {
-        outFile << vec.at(i);
+        outFile << vec.at(i) << endl;
     }
 
     outFile.close();
@@ -94,7 +94,7 @@ const string promptDialog() {
         if (input != "DONE") {
             userInput << input;
         }
-        userInput << "\n";
+        // userInput << "\n";
     }
 
     return userInput.str();
@@ -113,7 +113,7 @@ const string promptDecision() {
     return s;
 }
 
-const int promptDepth() {
+int promptDepth() {
     int numResults = 0;
     cout << "How many layers deep?: ";
     cin >> numResults;
@@ -134,24 +134,23 @@ void recurse(int depth, int counter, int numResults, int change, int index, vect
     cout << "For OPTION " << counter << ": " << endl;
     string x = promptDialog();
     int tempUpIndex = index+change;
-    v.insert(v.begin() + tempUpIndex, x);
+    v.at(tempUpIndex) = x;
     // cout << "change: " << change << endl;
     // cout << "tempUp: " << tempUpIndex << endl;
 
     cout << "For OPTION " << counter+1 << ": " << endl;
     string y = promptDialog();
     int tempDownIndex = index-change;
-    v.insert(v.begin() + tempDownIndex, y);
-    counter++;
+    v.at(tempDownIndex) = y;
     // cout << "change: " << change << endl;
     // cout << "tempDown" << tempDownIndex << endl;
 
     //printVector(v);
+    counter++;
     if (counter >= depth) {
         cout << "Completed!" << endl;
     } else {
-        recurse(depth, counter, numResults, change/2, tempDownIndex, v);     
         recurse(depth, counter, numResults, change/2, tempUpIndex, v);
+        recurse(depth, counter, numResults, change/2, tempDownIndex, v);     
     }
-
 }
