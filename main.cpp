@@ -1,5 +1,4 @@
 #include "DialogNode.h"
-#include "Story.h"
 #include <iostream>
 #include <sstream>
 #include <vector>
