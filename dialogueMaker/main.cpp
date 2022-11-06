@@ -31,7 +31,7 @@ int main() {
     //printVector(vec);
     recurse(depth, recurseCounter, numResults, change, currIndex, vec);
 
-    ofstream outFile("test.txt");
+    ofstream outFile("test1.txt");
     if (!outFile.is_open()) {
         cout << "Error creating test.txt" << endl;
         return 1;
