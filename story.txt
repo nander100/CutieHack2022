@@ -1,2 +1,2 @@
-This is the first line of story
-This is the second line of my story
+line1
+line2
