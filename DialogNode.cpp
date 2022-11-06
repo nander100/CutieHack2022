@@ -5,43 +5,33 @@
 
 using namespace std;
 
-DialogNode::DialogNode() {
-    displayText = promptDialog();
-    numChildren = promptPaths();
+DialogNode::DialogNode(const string& dialog, const int& numChildren, unique_ptr<DialogNode>& parentNode) {
+    this->dialog = dialog;
+    this->numChildren = numChildren;
+    for (unsigned i = 0; i < numChildren; ++i) {
+        unique_ptr<DialogNode> node = make_unique<DialogNode>();
+        children.push_back(node);
+    }
+
 }
 
 DialogNode::~DialogNode() {
 
 }
 
-const int DialogNode::promptPaths() const {
-    
-    int numNodes = 0;
-    cout << "How many paths?: ";
-    cin >> numNodes;
-    cout << endl;
-
-    return numNodes;
+void DialogNode::setDialog(const string& s) {
+    dialog = s;
 }
 
-const string DialogNode::promptDialog() const {
-    ostringstream userDialog;
-    string input;
-    cout << "Enter Dialog (DONE to finish): " << endl;
-    while (input != "DONE") {
-        getline(cin, input);
-        if (input != "DONE") {
-        userDialog << input;
-        }
-        userDialog << "\n";
-    }
-    
-    return userDialog.str();
+string DialogNode::getDialog() const {
+    return dialog;
 }
+
+
 
 void DialogNode::debugData() const {
 
     cout << "Displaying Dialog: " << endl;
-    cout << displayText << endl;
+    cout << dialog << endl;
     cout << "Number of pathways: " << numChildren << endl;
 }
