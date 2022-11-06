@@ -48,7 +48,7 @@ int main() {
     // fileOut.open("story.txt");
 
     // if (!fileOut.is_open()) {
-    //     cout << "Error creating output file" << endl;\
+    //     cout << "Error creating output file" << endl;
     //     return 1; 
     // }
 
