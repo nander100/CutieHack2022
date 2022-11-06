@@ -154,3 +154,12 @@ void recurse(int depth, int counter, int numResults, int change, int index, vect
         recurse(depth, counter, numResults, change/2, tempDownIndex, v);     
     }
 }
+
+const string promptOption() {
+    string input;
+    cout << "Enter your options (DONE to stop): " << endl;
+    getline(cin, input);
+        // userInput << "\n";
+
+    return input;
+}
